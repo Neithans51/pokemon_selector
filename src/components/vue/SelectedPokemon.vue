@@ -12,7 +12,7 @@
 
 <template>
     <section class="section-selected-pokemon">
-        <img v-if="$selectedPokemon.length == 0" src="../../../public/poke_ball_close.svg" alt="pokeball">
+        <img v-if="$selectedPokemon.length == 0" src="../../../public/poke_ball_close.svg" alt="pokeball" class="pokeball">
         <div v-else class="selected-container">
             <h1>{{$selectedPokemon[0]}}</h1>
             <div class="sprite-containers">
@@ -51,5 +51,17 @@
 
     .selected-container{
         @apply flex flex-col;
+    }
+
+    .pokeball{
+        animation: pokeball infinite 2s;
+    }
+
+    @keyframes pokeball{
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(10deg); }
+        50% { transform: rotate(0deg); }
+        75% { transform: rotate(-10deg); }
+        100% { transform: rotate(0deg); }
     }
 </style>
